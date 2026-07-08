@@ -15,15 +15,15 @@ jobs:
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
       - uses: actions/setup-node@v3
         with:
-          node-version: 15
+          node-version: 24
       - run: npm ci
       - id: update-badge
         run: node ./update-badge-script.js
       - name: Commit files
         if: env.update-badge == 'true'
         run: |
-         git config --local user.email "gihub-bot.tobse.eu"
-         git config --local user.name "github-james"
+         git config --local user.email "gihub-bot.drngpit.ac.in"
+         git config --local user.name "github-drngpit"
          git add github-repo-count.svg
          git commit -m "🤖 Update Badge" -a
       - name: Push changes
